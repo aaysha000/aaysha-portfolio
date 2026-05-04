@@ -1,0 +1,23 @@
+[
+  {
+    "title": "TryHackMe Redisl33t Walkthrough",
+    "desc": "Step-by-step walkthrough including reconnaissance, LFI exploitation, and privilege escalation.",
+    "tag": "TryHackMe",
+    "date": "Sep 2025",
+    "link": "https://medium.com/@aayshatimalsina"
+  },
+  {
+    "title": "SOC Log Analysis with Splunk",
+    "desc": "Analyzing logs to detect suspicious activities and threats in a SOC environment.",
+    "tag": "SOC",
+    "date": "Aug 2025",
+    "link": "https://medium.com/@aayshatimalsina"
+  },
+  {
+    "title": "Digital Forensics Fundamentals",
+    "desc": "Introduction to forensic tools, evidence analysis, and investigation techniques.",
+    "tag": "Forensics",
+    "date": "Jul 2025",
+    "link": "https://medium.com/@aayshatimalsina"
+  }
+]
