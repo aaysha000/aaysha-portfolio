@@ -1,12 +1,20 @@
-version: "3.8"
+version: "3.9"
 
 services:
-  app:
+  portfolio:
     build: .
-    container_name: secure_app
-    user: "1001:1001"   # Run as non-root user
+    container_name: portfolio_app
     ports:
       - "8080:8080"
-    volumes:
-      - ./data:/data
+    
+    # Run as non-root user (extra security)
+    user: "1001:1001"
+
+    # Read-only filesystem (security hardening)
+    read_only: true
+
+    # Limit privileges
+    security_opt:
+      - no-new-privileges:true
+
     restart: unless-stopped
