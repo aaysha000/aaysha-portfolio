@@ -1,15 +1,21 @@
 FROM nginx:alpine
 
+# Remove default nginx files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy your portfolio files
+COPY . /usr/share/nginx/html
+
 # Create non-root user
 RUN adduser -D appuser
-
-# Copy website files
-COPY . /usr/share/nginx/html
 
 # Fix permissions
 RUN chown -R appuser:appuser /usr/share/nginx/html
 
-# Use non-root user
+# Copy custom nginx config (IMPORTANT)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Switch to non-root
 USER appuser
 
 # Use safe port
