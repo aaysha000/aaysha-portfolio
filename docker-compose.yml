@@ -3,8 +3,15 @@ version: "3.9"
 services:
   portfolio:
     build: .
+    container_name: my_portfolio
     ports:
       - "8080:8080"
+
+    # Force non-root execution
     user: "1001:1001"
+
+    # Security hardening
     security_opt:
       - no-new-privileges:true
+
+    restart: unless-stopped
