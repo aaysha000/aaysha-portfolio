@@ -1,11 +1,17 @@
-FROM alpine:latest
+FROM nginx:alpine
 
 RUN adduser -D appuser
 
-WORKDIR /home/appuser
+COPY . /usr/share/nginx/html
 
-COPY . .
+# Fix permissions
+RUN chown -R appuser:appuser /usr/share/nginx/html
 
+# Switch to non-root user
 USER appuser
 
-CMD ["sh"]
+# Expose higher port (not 80)
+EXPOSE 8080
+
+# Run nginx on non-root port
+CMD ["nginx", "-g", "daemon off;"]
