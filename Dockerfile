@@ -21,7 +21,7 @@ RUN chown -R appuser:appuser /usr/share/nginx/html && \
     chown appuser:appuser /var/run/nginx.pid
 
 # Switch to non-root user
-USER appuser
+# USER appuser
 
 # Expose non-privileged port
 EXPOSE 8080
