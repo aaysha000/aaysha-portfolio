@@ -10,23 +10,18 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            set -e
+      - name: Deploy Portfolio
+        run: |
+          set -e
 
-            cd /home/aaysha/portfolio/aaysha-portfolio
+          cd /home/aaysha/portfolio/aaysha-portfolio
 
-            echo "Pulling latest code..."
-            git fetch origin main
-            git reset --hard origin/main
+          echo "Pulling latest code..."
+          git fetch origin main
+          git reset --hard origin/main
 
-            echo "Restarting portfolio..."
-            docker compose down
-            docker compose up -d --build
+          echo "Restarting Docker..."
+          docker compose down
+          docker compose up -d --build
 
-            echo "Deployment completed successfully."
+          echo "Done."
