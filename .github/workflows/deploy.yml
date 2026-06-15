@@ -20,8 +20,10 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-          echo "Restarting Docker..."
-          docker compose down
+          echo "Restarting portfolio..."
           docker compose up -d --build
 
-          echo "Done."
+          echo "Cleaning unused Docker images..."
+          docker image prune -f
+
+          echo "Deployment completed successfully."
